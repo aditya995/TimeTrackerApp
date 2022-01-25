@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "869035152406",
+    "project_id": "cafe-1be1f",
+    "storage_bucket": "cafe-1be1f.time_trackerpot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869035152406:android:8adbe56f3099a5187fd137",
+        "android_client_info": {
+          "package_name": "com.example.demo_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "869035152406-fi9tjui8t84vjhq04cpr8kui538b7koa.time_tracker.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.demo_app",
+            "certificate_hash": "60ca57022030592f79b61e1909db65415d794ed5"
+          }
+        },
+        {
+          "client_id": "869035152406-fk999nbn00nv6urblkcaub9j76mafjj5.time_tracker.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.demo_app",
+            "certificate_hash": "1454ba954dfccc5139945f6031ccd5f6cef4c22a"
+          }
+        },
+        {
+          "client_id": "869035152406-o1vsp7hr434cs3gjt7310ir9mqpu4bee.time_tracker.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDerw9cqj9xnAS2vy5YRpqmg5gG7D2eo4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "869035152406-o1vsp7hr434cs3gjt7310ir9mqpu4bee.time_tracker.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
