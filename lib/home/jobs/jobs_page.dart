@@ -15,28 +15,6 @@ import 'edit_job_page.dart';
 class JobsPage extends StatelessWidget {
   const JobsPage({Key? key}) : super(key: key);
 
-  Future<void> _signOut(BuildContext context) async {
-    try {
-      final auth = Provider.of<AuthBase>(context, listen: false);
-      await auth.signOut();
-    } catch (e) {
-      print(e.toString());
-    }
-  }
-
-  Future<void> _confirmSignOut(BuildContext context) async {
-    final didRequestSignOut = await showAlertDialog(
-      context,
-      title: 'Logout',
-      content: 'Are you sure that you want to logout?',
-      defaultActionText: 'Logout',
-      cancelActionText: 'Cancel',
-    );
-    if (didRequestSignOut == true) {
-      _signOut(context);
-    }
-  }
-
   Future<void> _delete(BuildContext context, Job job) async {
     try {
       final database = Provider.of<Database>(context, listen: false);
@@ -49,59 +27,29 @@ class JobsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final auth = Provider.of<AuthBase>(context, listen: false);
     AppBar appbar = AppBar(
-      leading: (auth.currentUser!.photoURL != null)
-          ? Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                // height: 10,
-                // width: 10,
-                clipBehavior: Clip.antiAlias,
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(50)),
-                child: Image.network('${auth.currentUser!.photoURL}'),
-              ),
-            )
-          : SizedBox(),
       title: Text('Jobs'),
       centerTitle: true,
       actions: [
-        ElevatedButton(
-          onPressed: () => _confirmSignOut(context),
-          child: const Text(
-            'logout',
-            style: TextStyle(color: Colors.white, fontSize: 18),
-          ),
-        )
+        IconButton(
+          icon: Icon(Icons.add),
+          onPressed: () => EditJobPage.show(context,
+              database: Provider.of<Database>(context, listen: false)),
+        ),
       ],
     );
     return Scaffold(
       appBar: appbar,
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () => EditJobPage.show(context,
-            database: Provider.of<Database>(context, listen: false)),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 48.0),
+        child: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () => EditJobPage.show(context,
+              database: Provider.of<Database>(context, listen: false)),
+        ),
       ),
       body: ListView(
         children: [
-          Row(
-            children: [
-              (auth.currentUser!.displayName != null)
-                  ? Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child:
-                          Text('User Name: ${auth.currentUser!.displayName}'),
-                    )
-                  : SizedBox(),
-            ],
-          ),
-          (auth.currentUser!.email != null)
-              ? Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text('Email: ${auth.currentUser!.email}'),
-                )
-              : SizedBox(),
           Container(
               padding: EdgeInsets.all(8.0),
               color: Colors.black12,
