@@ -115,21 +115,21 @@ class SignInPage extends StatelessWidget {
           SizedBox(
             height: 8,
           ),
-          TextButton(
-            onPressed: isLoading ? null : () => _signInWithFacebook(context),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Image.asset('assets/facebook-logo.png'),
-                Text('Sign in with Facebook'),
-                Opacity(
-                    opacity: 0.0,
-                    child: Image.asset('assets/facebook-logo.png')),
-              ],
-            ),
-            style: TextButton.styleFrom(
-                backgroundColor: Colors.indigo, primary: Colors.white),
-          ),
+          // TextButton(
+          //   onPressed: isLoading ? null : () => _signInWithFacebook(context),
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //     children: [
+          //       Image.asset('assets/facebook-logo.png'),
+          //       Text('Sign in with Facebook'),
+          //       Opacity(
+          //           opacity: 0.0,
+          //           child: Image.asset('assets/facebook-logo.png')),
+          //     ],
+          //   ),
+          //   style: TextButton.styleFrom(
+          //       backgroundColor: Colors.indigo, primary: Colors.white),
+          // ),
           TextButton(
             onPressed: isLoading ? null : () => _signInWithEmail(context),
             child: Text('Sign in with Email'),
